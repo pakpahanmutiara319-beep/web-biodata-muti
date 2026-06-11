@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biodata Pribadi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0f0f13;
+      color: #e8e4dc;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: #17171f;
+      border: 1px solid #2a2a38;
+      border-radius: 20px;
+      max-width: 780px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1e1e2e 0%, #252540 100%);
+      padding: 48px 48px 36px;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      border-bottom: 1px solid #2a2a38;
+      position: relative;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #7c6af7, #e064b0, #f7a84a);
+    }
+
+    /* ===== FOTO BULAT ===== */
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #7c6af7;
+      flex-shrink: 0;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* ===================== */
+
+    .header-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: #f0ecff;
+      margin-bottom: 6px;
+    }
+
+    .header-text .tagline {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9b8fe8;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: #7cad8a;
+      font-weight: 500;
+    }
+
+    .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #5dbe70;
+    }
+
+    .body {
+      padding: 40px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 40px;
+    }
+
+    .section-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #7c6af7;
+      margin-bottom: 14px;
+    }
+
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .info-row {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .info-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: #5a5870;
+    }
+
+    .info-value {
+      font-size: 14.5px;
+      color: #d8d3ec;
+    }
+
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: #c4b8ff;
+      background: rgba(124, 106, 247, 0.12);
+      border: 1px solid rgba(124, 106, 247, 0.22);
+      border-radius: 20px;
+      padding: 4px 12px;
+    }
+
+    .divider {
+      grid-column: 1 / -1;
+      height: 1px;
+      background: #2a2a38;
+    }
+
+    .hobbies-list {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hobby-item {
+      font-size: 13.5px;
+      color: #c0bbd4;
+    }
+
+    .footer {
+      border-top: 1px solid #2a2a38;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #141418;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .contact-link {
+      font-size: 12.5px;
+      color: #6a6585;
+      text-decoration: none;
+    }
+
+    .contact-link:hover { color: #9b8fe8; }
+
+    .footer-note {
+      font-size: 11.5px;
+      color: #3a3852;
+      font-style: italic;
+    }
+
+    @media (max-width: 580px) {
+      .header { flex-direction: column; text-align: center; padding: 36px 24px 28px; }
+      .body { grid-template-columns: 1fr; padding: 32px 24px; }
+      .footer { flex-direction: column; gap: 12px; padding: 20px 24px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="header">
+
+    <!-- GANTI foto.jpg dengan nama file foto kamu -->
+    <div class="avatar">
+      <img src="WhatsApp Image 2026-06-11 at 09.58.53 (4).jpeg" />
+    </div>
+
+    <div class="header-text">
+      <h1>Biodata</h1>
+      <div class="tagline">UI/UX Designer &amp; Front-End Developer</div>
+      <div class="status">
+    
+      
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div>
+      <div class="section-title">Data Diri</div>
+      <div class="info-list">
+        <div class="info-row">
+          <span class="info-label">Nama Lengkap</span>
+          <span class="info-value">Mutiara Pakpahan</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Tempat, Tanggal Lahir</span>
+          <span class="info-value">Sibolahotang, 13 November 2007</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Jenis Kelamin</span>
+          <span class="info-value">Perempuan</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Agama</span>
+          <span class="info-value">Kristen</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Status</span>
+          <span class="info-value">Mahasiswa</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Kontak &amp; Alamat</div>
+      <div class="info-list">
+        <div class="info-row">
+          <span class="info-label">Nomor Telepon</span>
+          <span class="info-value">+62 812-3456-7890</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Email</span>
+          <span class="info-value">mutiara617@gmail.com</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Alamat</span>
+          <span class="info-value">Jl damai no 52</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div>
+      <div class="section-title">Pendidikan</div>
+      <div class="info-list">
+        <div class="info-row">
+          <span class="info-label">S1 — Sistem Informasi</span>
+          <span class="info-value">Universitas IBBI · 2026</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">SMA</span>
+          <span class="info-value">SMA Negeri 1 · 2022–2025</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Pengalaman Kerja</div>
+      <div class="info-list">
+        <div class="info-row">
+          <span class="info-label">UI/UX Designer </span>
+          <span class="info-value">2022 – Sekarang</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Web Developer</span>
+          <span class="info-value">2022 – 2024</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div>
+      <div class="section-title">Keahlian</div>
+      <div class="skills-wrap">
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Bootstrap</span>
+        <span class="skill-tag">MySQL</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Hobi &amp; Minat</div>
+      <div class="hobbies-list">
+        <span class="hobby-item">📷 Fotografi</span>
+        <span class="hobby-item">🎵 Musik</span>
+        <span class="hobby-item">💻 Coding</span>
+        <span class="hobby-item">📚 Membaca</span>
+        <span class="hobby-item">🎮 EPEP</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="contact-links">
+      <a href="#" class="contact-link">linkedin.com/in/mutiara</a>
+      <a href="#" class="contact-link">github.com/mutiara</a>
+      <a href="#" class="contact-link">mutiara.dev</a>
+    </div>
+    <span class="footer-note">Diperbarui Juni 2026</span>
+  </div>
+
+</div>
+
+</body>
+</html>
